@@ -3,6 +3,8 @@ import logo from "./img/narodowy_sympatyk_logo.png";
 import sympatyk from "./img/sympatyk.png";
 import button from "./img/google-play.png";
 import "./App.css";
+import strzalka from "./img/arrow.png";
+
 
 function App() {
   return (
@@ -10,6 +12,11 @@ function App() {
       <section className="page">
         <header className="header">
           <div className="header__logo"><img src={logo} alt="falanga" className="logo"/><h1 className="header__text">Narodowy Sympatyk</h1></div>
+          <div className="hamburger" id="hamburger">
+            <div className="hamburger__line1"></div>
+            <div className="hamburger__line2"></div>
+            <div className="hamburger__line3"></div>
+          </div>
           <ul className="nav" id="blog">
           <li className="nav__item"><a className="nav__link" href="#blog">Blog</a></li>
           <li className="nav__item"><a href="https://www.onr.com.pl" className="nav__link" target="_blank">O nas</a></li>
@@ -36,10 +43,11 @@ function App() {
               className="main__img"
             />
           </div>
+        <div className="arrow"><a href="#page2"><img src={strzalka} alt="strzałka" className="arrow__img"/></a></div>
         </div>
       </section>
       <section className="page">
-        <div className="main">
+        <div className="main" id="page2">
           <div className="main__photo"><img src={sympatyk} alt="narodowy_sympatyk_widok_mobilny" className="main__img"/></div>
           <div className="main__box">
             <h4 className="main__paragraph">Narodowy Sympatyk to platforma informacyjna zbudowana wokół szlachetnego świata patriotycznego zaangażowania.</h4>

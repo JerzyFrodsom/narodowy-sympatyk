@@ -1,7 +1,8 @@
 {
   "name": "app",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://www.onrtes2.webd.pl/narodowy-sympatyk",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "react": "^16.8.6",
