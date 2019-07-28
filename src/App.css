@@ -149,9 +149,13 @@ body {
 }
 
 /* Specific styles */
+.App {
+  overflow-x: hidden;
+}
 .page {
   width: 100%;
-  min-height: 100vh;
+  min-height: 45vh;
+  margin-bottom: 5vh;
   background-image: url(./img/map.svg);
   background-position: center;
   background-size: 80vmin;
@@ -162,7 +166,7 @@ body {
   position: relative;
   top: 0px;
   left: 0vw;
-  width: 100vw;
+  width: 100%;
   height: 100px;
   background-color: #006b3d;
   box-shadow: 2px 2px 2px darkgrey;
@@ -220,8 +224,7 @@ body {
 .main {
   padding: 10px 10vw;
   display: flex;
-  width: 100vw;
-  min-height: 80vh;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -344,6 +347,10 @@ body {
 
 /* Media queries */
 @media all and (max-width: 816px) {
+  .header {
+    position: fixed;
+    z-index: 2;
+  }
   .header__text {
     font-size: 28px;
     min-width: initial;
@@ -353,10 +360,10 @@ body {
     display: inline-block;
     width: 50px;
     height: auto;
+    z-index: 5;
     transition: all .2s ease-in-out;
   }
-  .hamburger__line1, .hamburger__line2,
-  .hamburger__line3 {
+  .hamburger__line {
     height: 4px;
     width: 30px;
     background-color: white;
@@ -366,25 +373,69 @@ body {
   .nav {
     display: none;
   }
+  .nav--active {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    background-color: hsla(154, 100%, 21%, 0.8);
+    top: 0px;
+    left: 0px;
+    padding-left: 20px;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+  }
+  .nav__item:first-child{
+    margin-top: 2vh;
+  }
+  .nav__item {
+    width: 70vw;
+    padding: 10px 0px;
+    border-bottom: 2px solid black;
+  }
   .hamburger:hover {
     transform: scale(1.3);
   }
+  .hamburger--active {
+    position: fixed;
+    top: 30px;
+    right: 5px;
+  }
   .main{
     text-align: center;
+    justify-content: center;
     flex-direction: column-reverse;
-    padding: 10px 10px;
+    padding: 0;
+  }
+  .main--fixing{
+    padding-top: 110px;
   }
   .main__photo {
     order: 1;
   }
   .main__img {
+    margin-bottom: 10px;
     height: auto;
+  }
+  .main__img--2 {
+    display: none;
+  }
+  .main__box {
+    margin: 10px;
   }
   .main__paragraph {
     font-size: 22px;
     text-align:center;
+    padding: 10px 5px;
+  }
+  .main__paragraph--small {
+    padding: 10px 5vw;
   }
   .main__describe {
+    width: 100vw;
+    border-radius: 0px;
     order: 2;
   }
   .logo {
