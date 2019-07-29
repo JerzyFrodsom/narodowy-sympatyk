@@ -156,11 +156,14 @@ body {
   width: 100%;
   min-height: 45vh;
   margin-bottom: 5vh;
+  background-color: rgba(255,255,255, .7);
+  background-blend-mode: lighten;
   background-image: url(./img/map.svg);
   background-position: center;
-  background-size: 80vmin;
+  background-size: 70vmin;
   background-repeat: no-repeat;
   background-attachment: fixed;
+ 
 }
 .header {
   position: relative;
@@ -182,6 +185,8 @@ body {
   align-items: center;
 }
 .logo {
+  background-color: white;
+  border-radius: 50%;
   height: 50px;
   margin-right: 10px;
 }
@@ -219,6 +224,9 @@ body {
   color: red;
 }
 .hamburger {
+  display: none;
+}
+.arrow {
   display: none;
 }
 .main {
@@ -347,6 +355,9 @@ body {
 
 /* Media queries */
 @media all and (max-width: 816px) {
+  .page {
+    background-size: 90vmin;
+  }
   .header {
     position: fixed;
     z-index: 2;
@@ -379,7 +390,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     text-align: left;
-    background-color: hsla(154, 100%, 21%, 0.8);
+    background-color: hsla(154, 100%, 21%, 0.9);
     top: 0px;
     left: 0px;
     padding-left: 20px;
@@ -402,6 +413,32 @@ body {
     position: fixed;
     top: 30px;
     right: 5px;
+  }
+  .arrowBox {
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+  }
+  .arrow {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-top: 20px solid hsla(154, 100%, 21%, 0.6);
+    border-radius: 5px;
+  }
+  .arrow:before {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 30px;
+    bottom: 20px;
+    left: -15px;
+    background-color: hsla(154, 100%, 21%, 0.6);
+  }
+  .arrow:hover {
+    transform: scale(1.1);
   }
   .main{
     text-align: center;
