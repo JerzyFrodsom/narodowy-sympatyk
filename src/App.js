@@ -3,7 +3,6 @@ import logo from "./img/narodowy_sympatyk_logo.png";
 import sympatyk from "./img/sympatyk.png";
 import button from "./img/google-play.png";
 import "./App.css";
-import strzalka from "./img/arrow.png";
 
 class App extends React.Component {
   toggle() {
@@ -23,10 +22,58 @@ class App extends React.Component {
     toggledMenu.classList.remove("nav--active");
     hamburger.classList.remove("hamburger--active");
   }
+  hide() {
+    let toggledMenu = document.getElementById("navbar"),
+    hamburger = document.getElementById("hamburger");
+    if (toggledMenu.classList.contains("nav--active")) {
+      toggledMenu.classList.remove("nav--active");
+      hamburger.classList.remove("hamburger--active");
+    } else {
+      return
+    }
+  }
+  measure() {
+    let windowHeight = window.innerHeight,
+    arrow = document.getElementById("arrow"),
+    size = document.querySelector(".page").offsetHeight;
+    if (windowHeight >= (size*1.2)) {
+      arrow.style.display = "none";
+      let stan = "none"
+      return stan
+    } else {
+      arrow.style.display = "block";
+      let stan = "block"
+      return stan
+    }
+  }
+  positioning () {
+    let windowPosition = window.pageYOffset,
+    windowHeight = window.innerHeight,
+    arrow = document.getElementById("arrow"),
+    body = document.body,
+    html = document.documentElement,
+    height = Math.max( body.scrollHeight, body.offsetHeight, 
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+    window.onscroll = function () {
+      windowPosition = window.pageYOffset;
+      return windowPosition
+    }
+    let hiding = function() {
+      if ((windowPosition + windowHeight) > (height - 500)){
+        arrow.style.visibility = "hidden";
+      } else {
+        arrow.style.visibility = "visible";
+      }
+    }
+    window.addEventListener("scroll", hiding);
+  }
+  dissappear ()  {
+    document.getElementById("arrow").style.visiblity = "hidden";
+  }
   render() {
     return (
-      <div className="App">
-        <section className="page">
+      <div className="App" onLoad={this.measure}>
+        <section className="page" onLoad={this.positioning}>
           <header className="header">
             <div className="header__logo">
               <img src={logo} alt="falanga" className="logo" />
@@ -37,7 +84,7 @@ class App extends React.Component {
               <div className="hamburger__line" id="l2" />
               <div className="hamburger__line" id="l3" />
             </div>
-            <ul className="nav" id="navbar">
+            <ul className="nav" id="navbar" onClick={this.hide}>
               <li className="nav__item" onClick={this.closing}>
                 <a className="nav__link" href="#blog">
                   Blog
@@ -79,6 +126,9 @@ class App extends React.Component {
                 className="main__img"
               />
             </div>
+          </div>
+          <div className="arrow" id="arrow">
+           <a href="#page2" onClick={this.dissappear}><div className="arrow__img"></div></a>
           </div>
         </section>
         <section className="page">
