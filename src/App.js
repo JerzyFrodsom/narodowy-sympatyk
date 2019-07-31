@@ -76,7 +76,7 @@ class App extends React.Component {
         <section className="page" onLoad={this.positioning}>
           <header className="header">
             <div className="header__logo">
-              <img src={logo} alt="falanga" className="logo" />
+              <a href="http://onrtes2.webd.pl/narodowy-sympatyk"><img src={logo} alt="falanga" className="logo" /></a>
               <h1 className="header__text">Narodowy Sympatyk</h1>
             </div>
             <div className="hamburger" id="hamburger" onClick={this.toggle}>
@@ -86,7 +86,7 @@ class App extends React.Component {
             </div>
             <ul className="nav" id="navbar" onClick={this.hide}>
               <li className="nav__item" onClick={this.closing}>
-                <a className="nav__link" href="#blog">
+                <a className="nav__link" href="http://onrtes2.webd.pl/narodowy-sympatyk/blog/index.html">
                   Blog
                 </a>
               </li>
@@ -94,13 +94,12 @@ class App extends React.Component {
                 <a
                   href="https://www.onr.com.pl/czym-jest-onr/"
                   className="nav__link"
-                  target="_blank"
-                >
+                  target="_blank">
                   O nas
                 </a>
               </li>
               <li className="nav__item" onClick={this.closing}>
-                <a href="#footer" className="nav__link">
+                <a href="http://onrtes2.webd.pl/narodowy-sympatyk/kontakt/index.html" className="nav__link">
                   Kontakt
                 </a>
               </li>
@@ -111,11 +110,11 @@ class App extends React.Component {
               <div className="main__describe">
                 <p className="main__paragraph">Narodowy. Mobilny. Codzienny</p>
                 <div className="main__button">
-                  <img
+                  <a href="https://play.google.com/store/apps/details?id=com.narodowy.sympatyk"><img
                     src={button}
                     alt="Przycisk_google_play"
                     className="main__button--img"
-                  />
+                  /></a>
                 </div>
               </div>
             </div>
@@ -154,7 +153,7 @@ class App extends React.Component {
                 Aplikacja jest mobilną sumą wydarzeń, artykułów, literatury i
                 muzyki o tematyce patriotycznej.{" "}
               </p>
-              <div className="main__download">Pobierz</div>
+              <a href="https://play.google.com/store/apps/details?id=com.narodowy.sympatyk"><div className="main__download">Pobierz</div></a>
             </div>
           </div>
         </section>
@@ -162,10 +161,10 @@ class App extends React.Component {
           <p className="footer__text">
             Kontakt:{" "}
             <a
-              href="mailto:narodowy.sympatyk@onr.com.pl"
+              href="mailto:sympatyk@onr.com.pl"
               className="footer__link"
             >
-              narodowy.sympatyk@onr.com.pl
+              sympatyk@onr.com.pl
             </a>
           </p>
         </footer>

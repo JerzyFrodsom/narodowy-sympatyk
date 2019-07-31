@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Narodowy Sympatyk - Kontakt</title>
+<link rel="stylesheet" href="style.css">
+<script
+			  src="https://code.jquery.com/jquery-1.12.4.min.js"
+			  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+			  crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+  $("html").on("submit","#contact_form",function(e){
+    e.preventDefault();
+    $("#send_form_status").html('').hide();
+    var data=$("#contact_form").serialize();
+    $.post("./send_form.php",data,function(res){
+      $("#send_form_status").html(res.msg).show();
+      if(res.status==1){ 
+        $("#contact_form")[0].reset();
+      } 
+    });
+  });
+});
+</script>
+</head>
+<body>
+        <section class="page">
+             <header class="header">
+            <div class="header__logo">
+              <a href="http://onrtes2.webd.pl/narodowy-sympatyk"><img src="../static/media/narodowy_sympatyk_logo.ede77392.png" alt="falanga" class="logo" /></a>
+              <h1 class="header__text">Narodowy Sympatyk</h1>
+            </div>
+            <div class="hamburger" id="hamburger">
+              <div class="hamburger__line" id="l1"> </div>
+              <div class="hamburger__line" id="l2"> </div>
+              <div class="hamburger__line" id="l3"> </div>
+            </div>
+            <ul class="nav" id="navbar">
+              <li class="nav__item">
+                <a class="nav__link" href="http://onrtes2.webd.pl/narodowy-sympatyk/blog/index.html">
+                  Blog
+                </a>
+              </li>
+              <li class="nav__item">
+                <a
+                  href="https://www.onr.com.pl/czym-jest-onr/"
+                  class="nav__link"
+                  target="_blank"
+                >
+                  O nas
+                </a>
+              </li>
+              <li class="nav__item" id="lastLi">
+                <a href="http://onrtes2.webd.pl/narodowy-sympatyk/kontakt/index.html" class="nav__link">
+                  Kontakt
+                </a>
+              </li>
+            </ul>
+          </header>
+          <main class="main">
+            <h2 class="main__title">Formularz kontaktowy</h2>
+            <p class="main__description">Masz do nas sprawę? Chciałbyś z nami programować? A może zauważyłeś w jaki sposób możemy usprawnić aplikacje? Jeżeli chciałbyś podzielić się z nami swoimi przemyśleniami, to nie wahaj się skorzystać z formularza, czy maila ze stopki. Docenimy każdą opinię.</p>
+        <div id="send_form_status"></div>
+              <form method="post" action="/send_form.php" id="contact_form" class="form">
+                  <div class="form__content"><label class="form__label" for="name">Imię i nazwisko</label></div>
+                  <div  class="form__content"><input type="text" name="name" id="name" class="form__input"></div>
+                  <div  class="form__content"><label  class="form__label"  for="phone">Numer telefonu</label></div>
+                  <div  class="form__content"><input type="number" name="phone" id="phone" class="form__input"></div>
+                  <div  class="form__content"><label  class="form__label"  for="email">Adres email</label></div>
+                  <div  class="form__content"><input type="email" name="email" id="email" class="form__input"></div>
+                  <div  class="form__content"><label  class="form__label"  for="topic">Temat</label></div>
+                  <div  class="form__content"><input type="text" name="topic" id="topic" class="form__input"></div>
+                  <div  class="form__content"><label  class="form__label"  for="message">Treść wiadomości</label></div>
+                  <div  class="form__content"><textarea name="message" id="message" class="form__input form__input--text"></textarea></div>
+                  <div  class="form__content"><button class= "form__button" id="sendBtn">Wyślij</button></div>
+              </form>
+              </main>
+              </section>
+                  <footer id="footer" class="footer">
+          <p class="footer__text">
+            Kontakt:<a
+              href="sympatyk@onr.com.pl"
+              class="footer__link"
+            >
+              sympatyk@onr.com.pl
+            </a>
+          </p>
+        </footer>
+        <script src="main.js" defer></script>
+      </body>
+
+
+
+

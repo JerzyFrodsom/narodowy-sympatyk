@@ -155,10 +155,10 @@ body {
 .page {
   width: 100%;
   min-height: 45vh;
-  margin-bottom: 5vh;
+  padding-bottom: 5vh;
   background-color: rgba(255,255,255, .7);
   background-blend-mode: lighten;
-  background-image: url(./img/map.svg);
+  background-image: url(./img/narodowy_sympatyk_logo.png);
   background-position: center;
   background-size: 70vmin;
   background-repeat: no-repeat;
@@ -187,7 +187,8 @@ body {
 .logo {
   background-color: white;
   border-radius: 50%;
-  height: 50px;
+  width:50px;
+  height: auto;
   margin-right: 10px;
 }
 .header__text {
